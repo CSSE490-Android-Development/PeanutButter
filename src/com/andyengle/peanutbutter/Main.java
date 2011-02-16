@@ -63,7 +63,7 @@ public class Main extends Activity {
             Log.d(TAG, "photo: " + profListArr.getJSONObject(i).getString("photoUrl"));
             /**
              * Within each object in the profList array is another array
-             * containing even more inforamtion. In this case, it's an array of
+             * containing even more information. In this case, it's an array of
              * name/value pairs containing a course listing for each professor.
              */
             JSONArray courseArr = profListArr.getJSONObject(i).getJSONArray("courseList");
