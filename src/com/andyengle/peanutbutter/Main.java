@@ -26,7 +26,7 @@ public class Main extends Activity {
             Log.d(TAG, "Displaying the prof list...");
             displayProfList();
         } catch (Exception e) {
-            Log.d(TAG, "Trouble! " + e);
+            Log.e(TAG, "Trouble! " + e);
         }
     }
 
@@ -110,7 +110,7 @@ public class Main extends Activity {
             }
             Log.d(TAG, "Sweet! We have completed the HTTP request.");
         } catch (Exception e) {
-            Log.d(TAG, "Trouble: " + e);
+            Log.e(TAG, "Trouble: " + e);
         } finally {
             
             /**
