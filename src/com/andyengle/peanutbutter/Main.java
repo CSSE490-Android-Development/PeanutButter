@@ -37,10 +37,12 @@ public class Main extends Activity {
          */
         String jsonStr = grabMeSomeJson();
         Log.d(TAG, "myStr: " + jsonStr);
+        
         /**
          * Turn the JSON string into an object we can work with
          */
         JSONObject jObject = new JSONObject(jsonStr);
+        
         /**
          * Let's print some stuff
          */
@@ -48,6 +50,7 @@ public class Main extends Activity {
         Log.d(TAG, "success: " + jObject.getBoolean("success"));
         Log.d(TAG, "auth: " + jObject.getBoolean("auth"));
         Log.d(TAG, "time: " + jObject.getString("currentTime"));
+        
         /**
          * This profListArr contains an array of JSON objects. We need to
          * iterate through the list in order to pull out the data contained in
@@ -61,12 +64,14 @@ public class Main extends Activity {
             Log.d(TAG, "last name: " + profListArr.getJSONObject(i).getString("lastName"));
             Log.d(TAG, "phone: " + profListArr.getJSONObject(i).getString("phone"));
             Log.d(TAG, "photo: " + profListArr.getJSONObject(i).getString("photoUrl"));
+            
             /**
              * Within each object in the profList array is another array
              * containing even more information. In this case, it's an array of
              * name/value pairs containing a course listing for each professor.
              */
             JSONArray courseArr = profListArr.getJSONObject(i).getJSONArray("courseList");
+            
             /**
              * Iterate through the list to grab the course information then
              * print that junk out
@@ -92,6 +97,7 @@ public class Main extends Activity {
             HttpGet request = new HttpGet();
             request.setURI(new URI("http://kalosoft.com/cs490/profs.php"));
             HttpResponse response = client.execute(request);
+            
             /**
              * Now that we should have received a response, load the response
              * into a StringBuffer (good practice to use StringBuffers when
@@ -106,6 +112,7 @@ public class Main extends Activity {
         } catch (Exception e) {
             Log.d(TAG, "Trouble: " + e);
         } finally {
+            
             /**
              * Close that junk!
              */
@@ -117,6 +124,7 @@ public class Main extends Activity {
                 }
             }
         }
+        
         /**
          * Convert the StringBuffer into a String; much easier to work with
          */
